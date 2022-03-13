@@ -1,0 +1,109 @@
+import csv
+file_path ='C:/Users/Eleonora/PycharmProjects/pythonProject/text_files/'
+text_file_title = 'text_1.txt'
+#csv_file_title = 'csv_1.csv'
+#file_title = file_path + text_file_title
+
+
+# print(file_title)
+#1 часть
+#f = open(file_title, 'w')
+#f.write('Hello world')
+#f.close()
+
+ll = ['QA', 'automation', 'employees']
+
+#2 часть
+#with open(file_title, 'w', encoding='utf-8') as f:
+    #f.write('Hello QA')
+    #f.writelines(ll)
+    #f.write('\n'.join(ll))
+
+#for i in ll:
+#f.write(i)
+#f.write('\n')
+#with open(file_title, 'x', encoding='utf-8') as f:
+    #for i in ll:
+        #f.writelines(i)
+        #f.write('\n')
+
+# добавить данные в конец
+# with open(file_title, 'a', encoding='utf-8') as f:
+#     for n in range(0, 10):
+#         for i in ll:
+#             w_line = str(n) + '_' + i
+#             f.writelines(w_line)
+#             f.write('\n')
+
+#чтение файла
+#with open(file_title, 'r',) as f:
+    #прочитать весь файл
+    #ff = f.read()
+    # записать первые 10 символов
+    #ff = f.read(10)
+    #записать в строку
+    # ff = f.readlines()
+    # print(ff)
+    # print(len(ff))
+
+#удалить 0 автоматион элемент и перезапись всего файла
+# with open(file_title, 'r', ) as f:
+#     ff = f.readlines()
+#     print(ff)
+#     del ff[1]
+#
+#     with open(file_title, 'w') as wf:
+#         wf.writelines(ff)
+#
+#     # for lines in ff:
+#     #     print(lines)
+#     #     print(lines.rstrip())
+
+#csv
+csv_file_title = 'csv_2.csv'
+file_title = file_path + csv_file_title
+user_l =[['Maxim', 30],
+         ['Artyom', 32],
+         ['Aleksey', 35]]
+#with open(File_title, 'w') as csv_f:
+    # writer = csv.writer(csv_f)
+    # row = ['Elena', 20]
+    # row_2 = ['Anna', 23]
+    # writer.writerow(row)
+    # writer.writerow(row_2)
+
+# добавление
+# with open(file_title, 'a') as csv_f:
+#      writer = csv.writer(csv_f)
+#      writer.writerows(user_l)
+# чтение
+# with open(file_title, 'r', newline="") as csv_f:
+#     reader = csv.reader(csv_f)
+#     for ii in reader:
+#         print(ii)
+#или в принт поставить * и написать переменную reader
+
+
+#чтобы был заголовок
+users = [{"Name": "Alex", "Age": 30},
+         {"Name": "Max", "Age": 25},
+         {"Name": "Elena", "Age": 20},
+         {"Name": "Al", "Age": 32}]
+
+# with open(file_title, 'w') as csv_f:
+#     columns = ["Name", "Age"]
+#     writer = csv.DictWriter(csv_f, fieldnames=columns)
+#     writer.writeheader()
+#
+#     #user = {"Name": "Alex", "Age": 30}
+#
+#     writer.writerows(users)
+
+
+#читать
+with open(file_title, 'r') as csv_f:
+    reader = csv.DictReader(csv_f)
+    line_count = 0
+    for rrr in reader:
+        print(line_count, rrr["Name"], rrr["Age"])
+        line_count +=1
